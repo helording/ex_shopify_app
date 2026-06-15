@@ -1,22 +1,15 @@
-test/ex_shopify_app/access_token/token_test.exs
-  s_6cb695c1a2fa21::t_b2aef8b894a76f 237-254
-lib/ex_shopify_app/access_token/keep_alive.ex
-  s_6cb695c1a2fa21::t_3f60d7d868b195 1-110
+mix.exs
+  s_6cb695c1a2fa21::t_3a7ba5055687a9 37-39
 README.md
-  s_6cb695c1a2fa21::t_25d17c79cdb2f5 34,40-41,60
-  s_6cb695c1a2fa21::t_fb819c83a592a8 42-59,107-122
-lib/ex_shopify_app/access_token/token.ex
-  s_6cb695c1a2fa21::t_51c59ab7a0ff72 183-202
-test/ex_shopify_app/access_token/keep_alive_test.exs
-  s_6cb695c1a2fa21::t_8e6c4e6975f9d8 1-118
-test/ex_shopify_app/access_token/repo_test.exs
-  s_6cb695c1a2fa21::t_2f98d844d7453f 207-262
-lib/ex_shopify_app/access_token/repo.ex
-  s_6cb695c1a2fa21::t_d6d3f86a521868 149-150
-  s_6cb695c1a2fa21::t_308ee9425a1509 286-287
-  s_6cb695c1a2fa21::t_b32e7971edd041 50-53
-lib/ex_shopify_app/access_token/repo/options.ex
-  s_6cb695c1a2fa21::t_38210ecbb8d167 18-20
+  s_6cb695c1a2fa21::t_25d17c79cdb2f5 34-36,42-43
+test/ex_shopify_app/access_token/migrations_test.exs
+  s_6cb695c1a2fa21::t_4cc94caa892eb1 1-37,39-42,44-63
+lib/ex_shopify_app/access_token/migrations.ex
+  s_6cb695c1a2fa21::t_031a9f5c37beec 7,11,14,18,20,24,26,29,40,45,49,52,55,65,68-69
+  s_6cb695c1a2fa21::t_3c5030fa6e6e1b 1-5
+  s_6cb695c1a2fa21::t_94825251431d2e 6,8-10,12-13,15-17,19,21-23,25,27-28,30-39,41-44,46-48,50-51,53-54,56-64,66-67
+test/support/migrations/create_access_tokens.ex
+  s_6cb695c1a2fa21::t_d4d05652ef4317 5-7,12-13
 ---
 {
   "schema_version": "authorship/3.0.0",
