@@ -1,0 +1,26 @@
+test/ex_shopify_app/access_token/token_test.exs
+  s_6cb695c1a2fa21::t_b2aef8b894a76f 237-254
+lib/ex_shopify_app/access_token/keep_alive.ex
+  s_6cb695c1a2fa21::t_3f60d7d868b195 1-110
+README.md
+  s_6cb695c1a2fa21::t_25d17c79cdb2f5 34,40-41,60
+  s_6cb695c1a2fa21::t_fb819c83a592a8 42-59,107-122
+lib/ex_shopify_app/access_token/token.ex
+  s_6cb695c1a2fa21::t_51c59ab7a0ff72 183-202
+test/ex_shopify_app/access_token/keep_alive_test.exs
+  s_6cb695c1a2fa21::t_8e6c4e6975f9d8 1-118
+test/ex_shopify_app/access_token/repo_test.exs
+  s_6cb695c1a2fa21::t_2f98d844d7453f 207-262
+lib/ex_shopify_app/access_token/repo.ex
+  s_6cb695c1a2fa21::t_d6d3f86a521868 149-150
+  s_6cb695c1a2fa21::t_308ee9425a1509 286-287
+  s_6cb695c1a2fa21::t_b32e7971edd041 50-53
+lib/ex_shopify_app/access_token/repo/options.ex
+  s_6cb695c1a2fa21::t_38210ecbb8d167 18-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "0a0437d9a3e61bfeb227173c4b7fabd56d91bbf4",
+  "prompts": {}
+}
