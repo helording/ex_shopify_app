@@ -91,6 +91,22 @@ end
 | Refresh token expired | `{:error, :reauthorization_required}` |
 | No stored token | `{:error, :no_token}` |
 
+### 5. Keep dormant shops alive (optional)
+
+On-demand refreshing only fires when a token is used. A shop with no API activity
+can silently cross the 90-day refresh-token expiry, after which only the merchant
+relaunching the app restores access. Add the heartbeat process to your
+supervision tree to rotate chains before they reach the cliff:
+
+```elixir
+{ExShopifyApp.AccessToken.Heartbeat,
+ store: MyApp.ShopifyAccessTokens, repo: MyApp.Repo}
+```
+
+It scans every `:interval` (default 6h) for chains whose refresh token expires
+within `:window` (default 7 days) and refreshes them through the store's lock —
+safe to run on every node. Lifetime (non-expiring) rows are never touched.
+
 ## Safety guarantees
 
 The store provides **at-least-once persistence attempt after a refresh response**, not

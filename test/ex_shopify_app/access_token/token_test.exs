@@ -6,12 +6,20 @@ defmodule ExShopifyApp.AccessToken.TokenTest do
   @now ~U[2026-05-21 12:00:00Z]
   @now_usec ~U[2026-05-21 12:00:00.123456Z]
 
+  # Token lifetimes mirror Shopify's grant durations: a 1h access token and a
+  # 90-day refresh token. :timer.* returns milliseconds, so convert to the
+  # seconds that Shopify's expires_in and DateTime.add/3 use.
+  @access_token_ttl div(:timer.hours(1), 1000)
+  @refresh_token_ttl div(:timer.hours(90 * 24), 1000)
+  # Comfortably past every expiry — used to probe that lifetime tokens never expire.
+  @far_future @refresh_token_ttl * 2
+
   @expiring %{
     "access_token" => "shpat_123",
     "scope" => "write_orders,read_customers",
-    "expires_in" => 3600,
+    "expires_in" => @access_token_ttl,
     "refresh_token" => "shprt_456",
-    "refresh_token_expires_in" => 7_776_000
+    "refresh_token_expires_in" => @refresh_token_ttl
   }
 
   describe "from_response/2" do
@@ -25,17 +33,22 @@ defmodule ExShopifyApp.AccessToken.TokenTest do
       assert token.refresh_token == "shprt_456"
       assert token.shopify_domain == "shop.myshopify.com"
 
-      assert DateTime.compare(token.expires_at, DateTime.add(before, 3600, :second)) != :lt
-      assert DateTime.compare(token.expires_at, DateTime.add(after_call, 3600, :second)) != :gt
+      assert DateTime.compare(token.expires_at, DateTime.add(before, @access_token_ttl, :second)) !=
+               :lt
+
+      assert DateTime.compare(
+               token.expires_at,
+               DateTime.add(after_call, @access_token_ttl, :second)
+             ) != :gt
 
       assert DateTime.compare(
                token.refresh_token_expires_at,
-               DateTime.add(before, 7_776_000, :second)
+               DateTime.add(before, @refresh_token_ttl, :second)
              ) != :lt
 
       assert DateTime.compare(
                token.refresh_token_expires_at,
-               DateTime.add(after_call, 7_776_000, :second)
+               DateTime.add(after_call, @refresh_token_ttl, :second)
              ) != :gt
     end
 
@@ -79,7 +92,7 @@ defmodule ExShopifyApp.AccessToken.TokenTest do
 
     test "lifetime token is never expired" do
       token = lifetime_token()
-      refute Token.expired?(token, DateTime.add(@now, 10_000_000, :second))
+      refute Token.expired?(token, DateTime.add(@now, @far_future, :second))
     end
   end
 
@@ -113,7 +126,7 @@ defmodule ExShopifyApp.AccessToken.TokenTest do
 
     test "lifetime token is never stale" do
       token = lifetime_token()
-      refute Token.stale?(token, DateTime.add(@now, 10_000_000, :second))
+      refute Token.stale?(token, DateTime.add(@now, @far_future, :second))
     end
   end
 
@@ -123,10 +136,10 @@ defmodule ExShopifyApp.AccessToken.TokenTest do
       access_token: "shpat_123",
       refresh_token: "shprt_456",
       scope: "write_orders",
-      expires_in: 3600,
-      expires_at: DateTime.add(@now, 3600, :second),
-      refresh_token_expires_in: 7_776_000,
-      refresh_token_expires_at: DateTime.add(@now, 7_776_000, :second)
+      expires_in: @access_token_ttl,
+      expires_at: DateTime.add(@now, @access_token_ttl, :second),
+      refresh_token_expires_in: @refresh_token_ttl,
+      refresh_token_expires_at: DateTime.add(@now, @refresh_token_ttl, :second)
     }
 
     test "valid for a complete expiring token" do
@@ -137,15 +150,17 @@ defmodule ExShopifyApp.AccessToken.TokenTest do
       changeset =
         Token.changeset(%Token{}, %{
           @valid_attrs
-          | expires_at: DateTime.add(@now_usec, 3600, :second),
-            refresh_token_expires_at: DateTime.add(@now_usec, 7_776_000, :second)
+          | expires_at: DateTime.add(@now_usec, @access_token_ttl, :second),
+            refresh_token_expires_at: DateTime.add(@now_usec, @refresh_token_ttl, :second)
         })
 
       assert Ecto.Changeset.get_field(changeset, :expires_at) ==
-               @now_usec |> DateTime.add(3600, :second) |> DateTime.truncate(:second)
+               @now_usec |> DateTime.add(@access_token_ttl, :second) |> DateTime.truncate(:second)
 
       assert Ecto.Changeset.get_field(changeset, :refresh_token_expires_at) ==
-               @now_usec |> DateTime.add(7_776_000, :second) |> DateTime.truncate(:second)
+               @now_usec
+               |> DateTime.add(@refresh_token_ttl, :second)
+               |> DateTime.truncate(:second)
     end
 
     test "requires shopify_domain and access_token" do
@@ -230,7 +245,25 @@ defmodule ExShopifyApp.AccessToken.TokenTest do
 
     test "lifetime token's refresh never expires" do
       token = lifetime_token()
-      refute Token.refresh_token_expired?(token, DateTime.add(@now, 10_000_000, :second))
+      refute Token.refresh_token_expired?(token, DateTime.add(@now, @far_future, :second))
+    end
+  end
+
+  describe "refresh_token_expiring?/3" do
+    test "false for lifetime tokens regardless of window" do
+      refute Token.refresh_token_expiring?(lifetime_token(), @now, @refresh_token_ttl)
+    end
+
+    test "false when no window is given" do
+      refute Token.refresh_token_expiring?(expiring_token(), @now, nil)
+    end
+
+    test "true only once the refresh token expires inside the window" do
+      token = expiring_token()
+      seconds_left = DateTime.diff(token.refresh_token_expires_at, @now, :second)
+
+      assert Token.refresh_token_expiring?(token, @now, seconds_left + 60)
+      refute Token.refresh_token_expiring?(token, @now, seconds_left - 60)
     end
   end
 
@@ -240,10 +273,10 @@ defmodule ExShopifyApp.AccessToken.TokenTest do
       access_token: "shpat_123",
       refresh_token: "shprt_456",
       scope: "write_orders,read_customers",
-      expires_in: 3600,
-      expires_at: DateTime.add(@now, 3600, :second),
-      refresh_token_expires_in: 7_776_000,
-      refresh_token_expires_at: DateTime.add(@now, 7_776_000, :second),
+      expires_in: @access_token_ttl,
+      expires_at: DateTime.add(@now, @access_token_ttl, :second),
+      refresh_token_expires_in: @refresh_token_ttl,
+      refresh_token_expires_at: DateTime.add(@now, @refresh_token_ttl, :second),
       refresh_generation: 0
     }
   end

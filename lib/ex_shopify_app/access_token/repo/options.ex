@@ -15,6 +15,9 @@ defmodule ExShopifyApp.AccessToken.Repo.Options do
   @doc "Whether to serve a still-valid old token when a refresh fails (`:stale_while_error`, default `false`)."
   def stale_while_error?(opts), do: Keyword.get(opts, :stale_while_error, false)
 
+  @doc "Keep-alive window in seconds before refresh-token expiry (`:refresh_token_window`, default `nil` — disabled)."
+  def refresh_token_window(opts), do: Keyword.get(opts, :refresh_token_window, nil)
+
   @doc "`Repo.transaction/2` options derived from `:timeout` (empty list when unset)."
   def transaction_opts(opts) do
     case Keyword.get(opts, :timeout) do
