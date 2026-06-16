@@ -1,0 +1,19 @@
+test/ex_shopify_app/access_token_test.exs
+  s_10ef5db070b237::t_ecbb080212e093 93-125
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "886e12f28ca88a102f81832bf093264e44bb5b77",
+  "prompts": {},
+  "sessions": {
+    "s_10ef5db070b237": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "77e64459-8055-45dd-80aa-8a8234843748",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    }
+  }
+}
