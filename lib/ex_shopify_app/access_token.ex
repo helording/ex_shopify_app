@@ -86,6 +86,37 @@ defmodule ExShopifyApp.AccessToken do
     end)
   end
 
+  @doc """
+  Migrate a non-expiring (lifetime) offline access token to an expiring one.
+
+  Shopify is replacing lifetime offline tokens with expiring ones. This performs a
+  token exchange that takes the existing non-expiring offline token as the subject and
+  returns an expiring offline token plus its refresh token. The returned token's
+  `refresh_token` **must** be persisted so it can later be refreshed via `refresh/2`.
+
+  Docs:
+  - <https://shopify.dev/docs/apps/build/authentication-authorization/access-tokens/offline-access-tokens#migrate-to-expiring-offline-access-tokens>
+  """
+  @spec migrate(shop(), String.t()) :: {:ok, Token.t()} | {:error, term()}
+  def migrate(shop, offline_token) when is_binary(offline_token) do
+    body = %{
+      client_id: api_key(),
+      client_secret: api_secret(),
+      grant_type: "urn:ietf:params:oauth:grant-type:token-exchange",
+      subject_token: offline_token,
+      subject_token_type: "urn:shopify:params:oauth:token-type:offline-access-token",
+      requested_token_type: "urn:shopify:params:oauth:token-type:offline-access-token",
+      expiring: "1"
+    }
+
+    shop
+    |> client()
+    |> Tesla.post("/oauth/access_token", body)
+    |> unwrap_token_response(fn resp ->
+      {:ok, Token.from_response(resp.body, Map.get(shop, :shopify_domain))}
+    end)
+  end
+
   @spec client(shop()) :: Tesla.Client.t()
   def client(%{shopify_domain: shopify_domain} = _shop) do
     host = String.trim_leading(shopify_domain, "https://")
