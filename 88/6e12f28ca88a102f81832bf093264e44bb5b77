@@ -1,5 +1,6 @@
 test/ex_shopify_app/access_token_test.exs
-  s_10ef5db070b237::t_ecbb080212e093 93-125
+  s_b6c772abdec3b3::t_89370dd22fbeb0 9
+  s_10ef5db070b237::t_3adabb45212c1b 93-95,97-109,111-120,122-125
 ---
 {
   "schema_version": "authorship/3.0.0",
@@ -11,6 +12,14 @@ test/ex_shopify_app/access_token_test.exs
       "agent_id": {
         "tool": "claude",
         "id": "77e64459-8055-45dd-80aa-8a8234843748",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    },
+    "s_b6c772abdec3b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cdc3f033-2602-417c-a975-d6ac3fb53d72",
         "model": "claude-opus-4-8"
       },
       "human_author": "Harry Lording <helording@gmail.com>"
