@@ -51,4 +51,21 @@ defmodule ExShopifyApp.AccessToken.Store do
   """
   @callback refresh_token(shop :: shop(), opts :: keyword()) ::
               {:ok, Token.t()} | {:error, term()}
+
+  @doc """
+  Run a locked, idempotent migration of a stored lifetime (non-expiring) offline token
+  to an expiring one, behind the same per-shop, cross-node lock as `c:refresh_token/2`.
+
+  Implementations must take the lock, re-read the token, and only call the migration
+  exchange when the stored token is still a lifetime token — a token that already
+  carries expiry data is returned unchanged with no network call. When a migration does
+  happen, the new token must be durably persisted before it is returned.
+
+  Optional: stores that do not support lifetime-token migration need not implement it.
+  See `ExShopifyApp.AccessToken.Repo` for the reference implementation.
+  """
+  @callback migrate_token(shop :: shop(), opts :: keyword()) ::
+              {:ok, Token.t()} | {:error, term()}
+
+  @optional_callbacks migrate_token: 2
 end

@@ -19,6 +19,9 @@ defmodule ExShopifyApp.AccessToken.Repo do
     * `refresh_token/2` — run a locked refresh *decision* for a shop: under the row
       lock it re-reads the token and only calls Shopify if a refresh is still needed,
       otherwise it returns the already-current stored token.
+    * `migrate_token/2` — run a locked, idempotent migration of a stored lifetime
+      (non-expiring) offline token to an expiring one, under the same row lock; a token
+      that already carries expiry data is returned unchanged with no Shopify call.
 
   ## Safety model
 
@@ -84,6 +87,11 @@ defmodule ExShopifyApp.AccessToken.Repo do
       @impl ExShopifyApp.AccessToken.Store
       def refresh_token(shop, opts \\ []) do
         ExShopifyApp.AccessToken.Repo.refresh_token(@__repo, shop, opts)
+      end
+
+      @impl ExShopifyApp.AccessToken.Store
+      def migrate_token(shop, opts \\ []) do
+        ExShopifyApp.AccessToken.Repo.migrate_token(@__repo, shop, opts)
       end
 
       @impl ExShopifyApp.AccessToken.Store
@@ -176,11 +184,42 @@ defmodule ExShopifyApp.AccessToken.Repo do
   @spec refresh_token(module(), shop(), keyword()) :: {:ok, Token.t()} | {:error, term()}
   def refresh_token(repo, shop, opts \\ []) do
     domain = Token.normalize_domain(shop.shopify_domain)
+    with_refresh_telemetry(domain, fn -> locked_refresh(repo, shop, domain, opts) end)
+  end
+
+  @doc """
+  Run the locked migration decision for `shop` via `repo`.
+
+  Migrates a stored lifetime (non-expiring) offline token to an expiring one under the
+  same per-shop, cross-node lock as `refresh_token/3`. Inside a `Repo.transaction/2` it
+  takes a `SELECT ... FOR UPDATE` lock on the shop's row, re-reads the token, and:
+
+    * returns `{:error, :no_token}` when no row exists;
+    * returns `{:ok, token}` with **no** Shopify call when the token already carries
+      expiry data — it has already been migrated (e.g. a concurrent caller migrated it
+      while this one waited on the lock), making the migration idempotent;
+    * otherwise exchanges the lifetime token for an expiring one via
+      `ExShopifyApp.AccessToken.migrate/2` and synchronously persists the new token
+      (rotating `refresh_generation`) before the transaction commits.
+
+  Shares the refresh telemetry span and error taxonomy; see `refresh_token/3` and
+  `docs/access-token-refresh-safety.md`.
+  """
+  @spec migrate_token(module(), shop(), keyword()) :: {:ok, Token.t()} | {:error, term()}
+  def migrate_token(repo, shop, opts \\ []) do
+    domain = Token.normalize_domain(shop.shopify_domain)
+    with_refresh_telemetry(domain, fn -> locked_migrate(repo, shop, domain, opts) end)
+  end
+
+  # Wraps a locked, single-rotation token operation in the refresh telemetry span and
+  # the shared lock-timeout / crash classification. Migration reuses this: it is the
+  # same locked operation with an identical error taxonomy.
+  defp with_refresh_telemetry(domain, fun) when is_function(fun, 0) do
     meta = %{shopify_domain: domain}
     start_time = Telemetry.refresh_start(meta)
 
     try do
-      result = locked_refresh(repo, shop, domain, opts)
+      result = fun.()
       Telemetry.refresh_stop(start_time, meta, result)
       result
     rescue
@@ -268,6 +307,55 @@ defmodule ExShopifyApp.AccessToken.Repo do
       exception -> {:error, exception}
     end
   end
+
+  defp locked_migrate(repo, shop, domain, opts) do
+    txn =
+      repo.transaction(
+        fn ->
+          Options.with_lock_timeout(opts, fn ms ->
+            repo.query!("SET LOCAL lock_timeout = #{ms}")
+          end)
+
+          token = lock_token(repo, domain)
+
+          cond do
+            is_nil(token) -> repo.rollback(:no_token)
+            not migration_needed?(token) -> token
+            true -> perform_migrate(repo, shop, token, domain)
+          end
+        end,
+        Options.transaction_opts(opts)
+      )
+
+    result =
+      case txn do
+        {:ok, %Token{} = token} -> {:ok, token}
+        {:error, reason} -> {:error, reason}
+      end
+
+    maybe_record_refresh_error(repo, domain, result)
+    result
+  end
+
+  defp perform_migrate(repo, shop, token, domain) do
+    case AccessToken.migrate(shop, token.access_token) do
+      {:ok, migrated} ->
+        case persist_refreshed(repo, token, migrated, nil) do
+          {:ok, updated} ->
+            updated
+
+          {:error, reason} ->
+            Telemetry.persistence_failed(domain, token)
+            repo.rollback({:token_persistence_failed_after_refresh, reason})
+        end
+
+      {:error, reason} ->
+        repo.rollback(RefreshResult.classify_error(reason))
+    end
+  end
+
+  defp migration_needed?(%Token{expires_at: nil}), do: true
+  defp migration_needed?(%Token{}), do: false
 
   defp lock_token(repo, domain) do
     query =

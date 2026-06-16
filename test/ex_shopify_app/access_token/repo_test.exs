@@ -164,6 +164,80 @@ defmodule ExShopifyApp.AccessToken.RepoTest do
     end
   end
 
+  # --- migrate_token ----------------------------------------------------------
+
+  describe "migrate_token/2" do
+    test "migrates a lifetime token to an expiring one and persists before returning" do
+      expect_refresh(1)
+      domain = "lifetime.myshopify.com"
+      insert(:lifetime_token, shopify_domain: domain)
+
+      assert {:ok,
+              %Token{
+                access_token: "shpat_new",
+                refresh_token: "shprt_new",
+                expires_in: 3600,
+                refresh_generation: 1
+              } = migrated} = TestStore.migrate_token(%{shopify_domain: domain})
+
+      assert migrated.expires_at != nil
+      assert migrated.refresh_token_expires_at != nil
+
+      # Persisted before returning.
+      assert %Token{refresh_token: "shprt_new", refresh_generation: 1} = stored(domain)
+    end
+
+    test "is idempotent: an already-expiring token is returned with no Shopify call" do
+      expect_no_refresh()
+      domain = "already.myshopify.com"
+      insert(:token, shopify_domain: domain, access_token: "shpat_expiring")
+
+      assert {:ok, %Token{access_token: "shpat_expiring", refresh_generation: 0}} =
+               TestStore.migrate_token(%{shopify_domain: domain})
+    end
+
+    test "no stored token returns {:error, :no_token}" do
+      expect_no_refresh()
+
+      assert {:error, :no_token} =
+               TestStore.migrate_token(%{shopify_domain: "nope.myshopify.com"})
+    end
+
+    test "a Shopify error leaves the lifetime token unchanged and records last_refresh_error" do
+      domain = "migfail.myshopify.com"
+      insert(:lifetime_token, shopify_domain: domain)
+      stub_error(%{"error" => "server"}, 503)
+
+      assert {:error, {:refresh_failed, %Tesla.Env{status: 503}}} =
+               TestStore.migrate_token(%{shopify_domain: domain})
+
+      token = stored(domain)
+      assert token.access_token == "shpat_lifetime"
+      assert token.expires_at == nil
+      assert token.refresh_generation == 0
+      assert token.last_refresh_error =~ "refresh_failed:http_503"
+    end
+
+    test "concurrent migrations for one shop produce exactly one Shopify call" do
+      domain = "migconcurrent.myshopify.com"
+      insert(:lifetime_token, shopify_domain: domain)
+      # The row-lock winner migrates; the other nine find the token already expiring and
+      # make no call. A second call would raise.
+      expect_refresh(1, delay: 30)
+
+      results =
+        1..10
+        |> Task.async_stream(fn _ -> TestStore.migrate_token(%{shopify_domain: domain}) end,
+          max_concurrency: 10,
+          timeout: 10_000
+        )
+        |> Enum.map(fn {:ok, res} -> res end)
+
+      assert Enum.all?(results, &match?({:ok, %Token{refresh_token: "shprt_new"}}, &1))
+      assert %Token{refresh_generation: 1} = stored(domain)
+    end
+  end
+
   # --- concurrency ------------------------------------------------------------
 
   describe "concurrent refreshes" do
