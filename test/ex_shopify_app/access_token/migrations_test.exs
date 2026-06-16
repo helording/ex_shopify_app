@@ -6,6 +6,18 @@ defmodule ExShopifyApp.AccessToken.MigrationsTest do
 
   @version 20_990_101_000_000
 
+  # The repo runs in :manual sandbox mode (set in test_helper). This test does real DDL
+  # against the shared database and the migrator runs it in a spawned task that needs its
+  # own pool connection, so neither the sandbox transaction nor a single checked-out
+  # connection works. Switch to :auto mode (each operation grabs a pool connection, as the
+  # repo behaved before the sandbox was introduced) for the duration of this test, then
+  # restore :manual for the rest of the suite. Safe because the test is async: false.
+  setup do
+    Ecto.Adapters.SQL.Sandbox.mode(TestRepo, :auto)
+    on_exit(fn -> Ecto.Adapters.SQL.Sandbox.mode(TestRepo, :manual) end)
+    :ok
+  end
+
   defmodule HostMigration do
     @moduledoc "The one-liner migration shape host applications are told to write."
 
