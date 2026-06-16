@@ -1,0 +1,151 @@
+config/test.exs
+  s_3ce4a7c5ee89be::t_c4ce9cf1c9e609 6-8,12-13,16
+test/ex_shopify_app/access_token/token_test.exs
+  s_50fa5105eb1a7c::t_b86aa786693a82 36-42,46,51
+  s_50fa5105eb1a7c::t_d5398a510c6c34 9-16,20,22
+  s_50fa5105eb1a7c::t_032a60ffd0010d 139-142
+  s_50fa5105eb1a7c::t_bf79b7b0e11658 254
+  s_50fa5105eb1a7c::t_8ff107d74a7cc2 276-279
+  s_50fa5105eb1a7c::t_e38f29e35a9e43 129
+  s_50fa5105eb1a7c::t_6295e7371764f2 95
+  s_50fa5105eb1a7c::t_8aa7c5762f832f 248
+  s_50fa5105eb1a7c::t_06a74e9787a5d7 153-154,158,161-163
+test/support/repo_case.ex
+  s_8fcd7a7c544f80::t_37084571e30993 1-40
+test/ex_shopify_app/access_token/repo_test.exs
+  s_b6c772abdec3b3::t_dbf7f114136297 132
+  s_b6c772abdec3b3::t_46c1ad7730d2c7 56-57,65-66,78-79,90-91
+  s_acdb6fc000070a::t_2c301896dfc7b0 237,239-243,245-249,251-256,258-262,264-265
+  s_b6c772abdec3b3::t_718af492462a01 145-146,157-158
+  s_6a1dc9d5b10534::t_e5910abb45aa95 149,160
+  s_c757f533114a0f::t_f9577b52e94164 4-6
+  s_6a1dc9d5b10534::t_682ada3d33d746 39-42
+  s_6a1dc9d5b10534::t_f1fff0cd58ab45 59
+  s_6a1dc9d5b10534::t_aae235f365e461 93
+  s_b6c772abdec3b3::t_fe96a9ffba7ef8 2-3,8-9
+  s_b6c772abdec3b3::t_6221a1461d2de5 107,118
+  s_20251c0743bdd5::t_dec76a61da7efb 142
+  s_b6c772abdec3b3::t_9b88cc134f8364 170,173-175,189,192
+  s_6a1dc9d5b10534::t_fd3d8e59711222 190-191
+  s_6a1dc9d5b10534::t_2e8cfa5396ed8e 20-31
+  s_6a1dc9d5b10534::t_4b08565469fdf3 68,105,117,172
+  s_b6c772abdec3b3::t_0c0af5c8f4165d 204,207
+  s_6a1dc9d5b10534::t_e31ec4090f24d6 206
+  s_b6c772abdec3b3::t_008c528f3e9330 226
+  s_6a1dc9d5b10534::t_ae14344f9c7722 82,131
+  s_3ce4a7c5ee89be::t_f0a342da6d2f2e 233-235
+test/support/factory.ex
+  s_6a1dc9d5b10534::t_f7677e9cc80b8d 1-65,70-72,74-91
+  s_6a1dc9d5b10534::t_1e2d4455fecaeb 73
+  s_6a1dc9d5b10534::t_2e8cfa5396ed8e 66-69
+lib/ex_shopify_app/access_token/repo/options.ex
+  s_8fcd7a7c544f80::t_37084571e30993 18-20
+test/ex_shopify_app/access_token_test.exs
+  s_b6c772abdec3b3::t_89370dd22fbeb0 4,10-14
+  s_b6c772abdec3b3::t_bb00cc56632489 26,36
+  s_b6c772abdec3b3::t_fea0802edf3147 72-74
+  s_6a1dc9d5b10534::t_75aba3183ec8c0 5
+  s_b6c772abdec3b3::t_756e8fea22069a 47
+  s_b6c772abdec3b3::t_6753baffe83857 59,65
+  s_b6c772abdec3b3::t_5b7001a4a87e27 49-51
+  s_6a1dc9d5b10534::t_e44f220b1a3360 18-22
+  s_b6c772abdec3b3::t_acfc29997f8fd6 96-98
+  s_b6c772abdec3b3::t_9eca792de269c9 82,87
+lib/ex_shopify_app/access_token/token.ex
+  s_b6c772abdec3b3::t_5b7001a4a87e27 193-194
+  s_20251c0743bdd5::t_84f72503b8a91e 185
+test/test_helper.exs
+  s_b6c772abdec3b3::t_ea6349f86ab2db 28-30,33-38
+  s_b6c772abdec3b3::t_e8db2390002a55 3-6
+  s_c757f533114a0f::t_c0a18c961b7a31 24-25
+  s_6a1dc9d5b10534::t_9e9303b27aedc6 46-51
+README.md
+  s_20251c0743bdd5::t_75583d09371163 98-102
+test/ex_shopify_app/access_token/lock_timeout_test.exs
+  s_8fcd7a7c544f80::t_37084571e30993 1-73
+mix.exs
+  s_b6c772abdec3b3::t_cd549b41a2d229 40
+  s_6a1dc9d5b10534::t_86b9919e5ee1a4 41-42
+test/ex_shopify_app/access_token/heartbeat_test.exs
+  s_8fcd7a7c544f80::t_37084571e30993 1-107
+mix.lock
+  s_8fcd7a7c544f80::t_37084571e30993 8,17-18
+lib/ex_shopify_app/access_token/repo.ex
+  s_20251c0743bdd5::t_5615ae71aa3b83 52
+lib/ex_shopify_app/access_token/heartbeat.ex
+  s_20251c0743bdd5::t_be21ec524416a2 1
+  s_20251c0743bdd5::t_e002ecc7ac9265 106
+  s_20251c0743bdd5::t_b52eb891f4f0e0 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "674be4ad87731aa9877441574f9b6c63b6a24240",
+  "prompts": {},
+  "sessions": {
+    "s_20251c0743bdd5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "51931504-73ef-4b2f-b9fb-b4c11d721cc9",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    },
+    "s_3ce4a7c5ee89be": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "73f5eb52-2bc7-4c98-8bf0-b0bc2a0a79b9",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    },
+    "s_50fa5105eb1a7c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c0dded90-c38d-4b59-961d-67df87cb807a",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    },
+    "s_6a1dc9d5b10534": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "912dcae8-9392-47ec-8f44-7ae6a2afb842",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    },
+    "s_8fcd7a7c544f80": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "50e00b00-454c-4c9d-be39-f17209e02ea7",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    },
+    "s_acdb6fc000070a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4145d448-adbb-475f-bb22-d705186838ab",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    },
+    "s_b6c772abdec3b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cdc3f033-2602-417c-a975-d6ac3fb53d72",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    },
+    "s_c757f533114a0f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "51631e58-292d-4ffb-aea0-7c62fb3b9938",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    }
+  }
+}
