@@ -1,5 +1,5 @@
 # Used by "mix format"
 [
-  import_deps: [:guardian, :plug],
+  import_deps: [:ecto, :ecto_sql, :guardian, :plug],
   inputs: ["{mix,.formatter}.exs", "{config,lib,test}/**/*.{ex,exs}"]
 ]

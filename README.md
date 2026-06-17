@@ -44,7 +44,7 @@ defmodule MyApp.Repo.Migrations.CreateShopifyAccessTokens do
 end
 ```
 
-The migrations are versioned: `up/0` runs every version up to the latest and is a
+The migrations are versioned (PostgreSQL only; version tracking uses table comments): `up/0` runs every version up to the latest and is a
 no-op once you are current, so future releases ship as additional versions you pick
 up with another migration. See `ExShopifyApp.AccessToken.Migrations` for pinning a
 specific `version`.

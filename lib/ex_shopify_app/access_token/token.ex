@@ -38,18 +38,18 @@ defmodule ExShopifyApp.AccessToken.Token do
   @derive {Inspect, except: [:access_token, :refresh_token]}
   @primary_key {:shopify_domain, :string, autogenerate: false}
   schema "shopify_access_tokens" do
-    field(:access_token, :string)
-    field(:refresh_token, :string)
-    field(:scope, :string)
+    field :access_token, :string
+    field :refresh_token, :string
+    field :scope, :string
 
-    field(:expires_in, :integer)
-    field(:expires_at, :utc_datetime)
-    field(:refresh_token_expires_in, :integer)
-    field(:refresh_token_expires_at, :utc_datetime)
+    field :expires_in, :integer
+    field :expires_at, :utc_datetime
+    field :refresh_token_expires_in, :integer
+    field :refresh_token_expires_at, :utc_datetime
 
-    field(:last_refreshed_at, :utc_datetime_usec)
-    field(:last_refresh_error, :string)
-    field(:refresh_generation, :integer, default: 0)
+    field :last_refreshed_at, :utc_datetime_usec
+    field :last_refresh_error, :string
+    field :refresh_generation, :integer, default: 0
 
     timestamps(type: :utc_datetime_usec)
   end
