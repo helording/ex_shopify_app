@@ -5,6 +5,8 @@ defmodule ExShopifyApp.AccessToken.RepoTest do
   # imports/aliases, global Mox mode, and the per-test table cleanup.
   use ExShopifyApp.RepoCase, async: false
 
+  alias ExShopifyApp.AccessToken.PersistenceFailure
+
   # Asserts every `expect`ed call count was met (and not exceeded) at the end of a test.
   setup :verify_on_exit!
 
@@ -294,7 +296,11 @@ defmodule ExShopifyApp.AccessToken.RepoTest do
 
     on_exit(fn -> :telemetry.detach(handler) end)
 
-    assert {:error, {:token_persistence_failed_after_refresh, :persist_boom}} =
+    # The exchanged-but-unpersisted token is surfaced (not discarded) so a caller can
+    # retry the write; `reason` carries the original write error.
+    assert {:error,
+            {:token_persistence_failed_after_refresh,
+             %PersistenceFailure{reason: :persist_boom, token: %Token{}}}} =
              ExShopifyApp.FailingStore.refresh_token(%{shopify_domain: domain})
 
     # Shopify was called (expect_refresh(1)), but the row is untouched (rolled back).
@@ -302,6 +308,25 @@ defmodule ExShopifyApp.AccessToken.RepoTest do
 
     assert_receive {:telemetry, [:ex_shopify_app, :access_token, :refresh, :persistence_failed],
                     _m, %{shopify_domain: ^domain}}
+  end
+
+  test "migrate persistence failure surfaces the exchanged token for retry" do
+    domain = "migpersistfail.myshopify.com"
+    insert(:lifetime_token, shopify_domain: domain)
+    expect_refresh(1)
+
+    assert {:error,
+            {:token_persistence_failed_after_refresh,
+             %PersistenceFailure{reason: :persist_boom, token: %Token{} = token}}} =
+             ExShopifyApp.FailingStore.migrate_token(%{shopify_domain: domain})
+
+    # The surfaced token is the new *expiring* one (not the lifetime input), ready to
+    # re-persist; without this the exchanged token would be lost.
+    assert token.refresh_token == "shprt_new"
+    refute is_nil(token.expires_at)
+
+    # The row is untouched (rolled back) — still the lifetime token.
+    assert %Token{access_token: "shpat_lifetime", expires_at: nil} = stored(domain)
   end
 
   # The held-row-lock / lock_timeout path lives in its own module
