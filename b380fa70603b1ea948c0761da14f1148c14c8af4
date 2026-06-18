@@ -1,0 +1,41 @@
+test/ex_shopify_app/access_token/migrations_test.exs
+  s_73a94b12717105::t_1721441593a7ef 1-78
+lib/ex_shopify_app/access_token/store.ex
+  s_73a94b12717105::t_1721441593a7ef 54-70
+mix.exs
+  s_73a94b12717105::t_1721441593a7ef 37-39
+test/ex_shopify_app/access_token/repo_test.exs
+  s_73a94b12717105::t_1721441593a7ef 166-238
+lib/ex_shopify_app/access_token/migrations/v01.ex
+  s_73a94b12717105::t_1721441593a7ef 1-42
+test/support/migrations/create_access_tokens.ex
+  s_73a94b12717105::t_1721441593a7ef 5-7,12-13
+lib/ex_shopify_app/access_token/repo.ex
+  s_73a94b12717105::t_1721441593a7ef 22-24,92-96,187-217,222,269-270,305-348
+lib/ex_shopify_app/access_token.ex
+  s_73a94b12717105::t_1721441593a7ef 89-119
+lib/ex_shopify_app/access_token/migrations.ex
+  s_73a94b12717105::t_1721441593a7ef 1-116
+lib/ex_shopify_app/access_token/token.ex
+  s_73a94b12717105::t_1721441593a7ef 41-52
+README.md
+  s_73a94b12717105::t_1721441593a7ef 34-36,42-43,47-50
+.formatter.exs
+  s_73a94b12717105::t_1721441593a7ef 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.8",
+  "base_commit_sha": "b380fa70603b1ea948c0761da14f1148c14c8af4",
+  "prompts": {},
+  "sessions": {
+    "s_73a94b12717105": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0a3f3f56-a9e8-4fd6-be2b-f8d99e8d602b",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    }
+  }
+}

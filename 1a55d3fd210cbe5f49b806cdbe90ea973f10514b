@@ -1,0 +1,22 @@
+mix.exs
+  s_6cb695c1a2fa21::t_3a7ba5055687a9 37-39
+lib/ex_shopify_app/access_token/migrations.ex
+  s_6cb695c1a2fa21::t_94825251431d2e 6,8-10,12-13,15-17,19,21-23,25,27-28,30-39,41-44,46-48,50-51,53-54,56-64,66-67
+  s_6cb695c1a2fa21::t_3c5030fa6e6e1b 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "1a55d3fd210cbe5f49b806cdbe90ea973f10514b",
+  "prompts": {},
+  "sessions": {
+    "s_6cb695c1a2fa21": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8e10b766-53ef-4dd0-8490-453b87bd72e6",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    }
+  }
+}

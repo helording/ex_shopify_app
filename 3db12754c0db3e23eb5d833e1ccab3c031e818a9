@@ -1,0 +1,62 @@
+test/ex_shopify_app/access_token/repo_test.exs
+  s_6a1dc9d5b10534::t_2e8cfa5396ed8e 101
+  s_42d0ea6093d802::t_cd00e930319846 218-220,225,227-235,239-242,247,249-251,254-255,258-260,263-266,269-274,276-279,283,285,288-297,299-302
+  s_acdb6fc000070a::t_2c301896dfc7b0 303-305,309,313-318,320-321,323-325
+lib/ex_shopify_app/access_token/repo.ex
+  s_42d0ea6093d802::t_44e44a9199ef8d 22-24
+  s_20251c0743bdd5::t_5615ae71aa3b83 52
+  s_42d0ea6093d802::t_e5dfbe9944cdf4 89-92
+  s_42d0ea6093d802::t_3aababff4d4160 183-213,218
+  s_42d0ea6093d802::t_879aa72b404bce 307-318,320-355
+  s_33c97e08fb87fb::t_c2183ca81b37ea 319
+lib/ex_shopify_app/access_token/store.ex
+  s_42d0ea6093d802::t_df0cfa85240f30 54-70
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "3db12754c0db3e23eb5d833e1ccab3c031e818a9",
+  "prompts": {},
+  "sessions": {
+    "s_20251c0743bdd5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "51931504-73ef-4b2f-b9fb-b4c11d721cc9",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    },
+    "s_33c97e08fb87fb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "83eb0381-db20-4a03-8bf6-ffb4c2aafb4c",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    },
+    "s_42d0ea6093d802": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f56fad85-94d6-4463-b6ee-db3f839a755f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": null
+    },
+    "s_6a1dc9d5b10534": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "912dcae8-9392-47ec-8f44-7ae6a2afb842",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    },
+    "s_acdb6fc000070a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4145d448-adbb-475f-bb22-d705186838ab",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    }
+  }
+}

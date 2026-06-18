@@ -1,0 +1,22 @@
+test/ex_shopify_app/access_token/migrations_test.exs
+  s_73a94b12717105::t_9fa5c9045b2275 2-5,12-16
+test/ex_shopify_app/access_token_test.exs
+  s_73a94b12717105::t_1a180b53b89608 131-133
+  s_73a94b12717105::t_dbc1ddc208a961 106,120
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.8",
+  "base_commit_sha": "cb909364da5454069a548df42fa01effeaf15d98",
+  "prompts": {},
+  "sessions": {
+    "s_73a94b12717105": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0a3f3f56-a9e8-4fd6-be2b-f8d99e8d602b",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    }
+  }
+}
