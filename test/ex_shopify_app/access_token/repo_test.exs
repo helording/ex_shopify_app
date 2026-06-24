@@ -333,6 +333,48 @@ defmodule ExShopifyApp.AccessToken.RepoTest do
   # (ExShopifyApp.AccessToken.LockTimeoutTest): it needs two independent connections, which
   # the shared-mode sandbox used here cannot provide.
 
+  # --- :reauthorization_required telemetry -----------------------------------
+
+  describe ":reauthorization_required telemetry" do
+    @reauth_event [:ex_shopify_app, :access_token, :refresh, :reauthorization_required]
+
+    test "valid_token emits the event when the refresh token has already expired (no HTTP call)" do
+      expect_no_refresh()
+      domain = "reauth-valid.myshopify.com"
+      insert(:token, shopify_domain: domain, issued: hours_ago(3000))
+      attach_event(@reauth_event)
+
+      assert {:error, :reauthorization_required} =
+               TestStore.valid_token(%{shopify_domain: domain})
+
+      assert_receive {:telemetry, @reauth_event, _m, %{shopify_domain: ^domain}}
+    end
+
+    test "refresh_token emits the event when the refresh token has already expired (no HTTP call)" do
+      expect_no_refresh()
+      domain = "reauth-dead.myshopify.com"
+      insert(:token, shopify_domain: domain, issued: hours_ago(3000))
+      attach_event(@reauth_event)
+
+      assert {:error, :reauthorization_required} =
+               TestStore.refresh_token(%{shopify_domain: domain})
+
+      assert_receive {:telemetry, @reauth_event, _m, %{shopify_domain: ^domain}}
+    end
+
+    test "refresh_token emits the event when Shopify rejects the refresh with invalid_grant" do
+      domain = "reauth-ig.myshopify.com"
+      insert(:expired_token, shopify_domain: domain)
+      stub_error(%{"error" => "invalid_grant"}, 400)
+      attach_event(@reauth_event)
+
+      assert {:error, :reauthorization_required} =
+               TestStore.refresh_token(%{shopify_domain: domain})
+
+      assert_receive {:telemetry, @reauth_event, _m, %{shopify_domain: ^domain}}
+    end
+  end
+
   # --- helpers ---------------------------------------------------------------
 
   # Expect *exactly* `n` successful Shopify refresh calls. verify_on_exit! fails the test
@@ -362,4 +404,20 @@ defmodule ExShopifyApp.AccessToken.RepoTest do
   end
 
   defp hours_ago(h), do: DateTime.add(DateTime.utc_now(), -h, :hour)
+
+  # Attach a one-off telemetry handler that forwards events to the test process, then
+  # detach it on exit. Pair with `assert_receive {:telemetry, event, measurements, meta}`.
+  defp attach_event(event) do
+    handler = "test-#{System.unique_integer([:positive])}"
+    test_pid = self()
+
+    :telemetry.attach(
+      handler,
+      event,
+      fn e, measurements, meta, _ -> send(test_pid, {:telemetry, e, measurements, meta}) end,
+      nil
+    )
+
+    on_exit(fn -> :telemetry.detach(handler) end)
+  end
 end

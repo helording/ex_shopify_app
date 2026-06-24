@@ -150,6 +150,9 @@ defmodule ExShopifyApp.AccessToken.Repo do
       {:ok, token} ->
         cond do
           Token.refresh_token_expired?(token, now) ->
+            # Short-circuits before `refresh_token/2`, so it never enters the refresh
+            # telemetry span; emit the re-auth signal explicitly here.
+            Telemetry.reauthorization_required(domain)
             {:error, :reauthorization_required}
 
           Token.expired?(token, now, Options.skew(opts)) ->

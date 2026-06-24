@@ -9,6 +9,11 @@ defmodule ExShopifyApp.AccessToken.Telemetry do
       failed (also logged at `error`).
     * `[..., :stale_while_error]` — a refresh failed but the still-valid old token was
       served.
+    * `[..., :reauthorization_required]` — the chain can no longer be refreshed and the
+      merchant must relaunch the app to reauthorize. Emitted whenever a call resolves to
+      `:reauthorization_required`, regardless of the path that produced it (an already
+      expired refresh token short-circuited before any HTTP call, or Shopify rejected the
+      refresh with `invalid_grant`).
 
   Metadata carries `:shopify_domain`, `:refresh_generation`, and a `:result`
   classification — never token values.
@@ -30,11 +35,15 @@ defmodule ExShopifyApp.AccessToken.Telemetry do
 
   @doc "Emit the refresh `:stop` event with the elapsed duration and classified result."
   def refresh_stop(start_time, meta, result) do
+    classification = classify(result)
+
     :telemetry.execute(
       @event ++ [:stop],
       %{duration: System.monotonic_time() - start_time},
-      Map.put(meta, :result, classify(result))
+      Map.put(meta, :result, classification)
     )
+
+    maybe_reauthorization_required(meta, classification)
   end
 
   @doc "Emit the refresh `:exception` event for a crash in the refresh path."
@@ -80,6 +89,26 @@ defmodule ExShopifyApp.AccessToken.Telemetry do
       }
     )
   end
+
+  @doc """
+  Emit the `:reauthorization_required` event for `domain`.
+
+  Call this on every path that resolves to `:reauthorization_required` so the merchant
+  re-auth signal surfaces regardless of whether an HTTP refresh was attempted.
+  """
+  def reauthorization_required(domain) do
+    :telemetry.execute(
+      @event ++ [:reauthorization_required],
+      %{system_time: System.system_time()},
+      %{shopify_domain: domain}
+    )
+  end
+
+  defp maybe_reauthorization_required(%{shopify_domain: domain}, :reauthorization_required) do
+    reauthorization_required(domain)
+  end
+
+  defp maybe_reauthorization_required(_meta, _classification), do: :ok
 
   defp classify({:ok, _}), do: :ok
   defp classify({:error, :no_token}), do: :no_token
