@@ -1,0 +1,25 @@
+lib/ex_shopify_app/access_token/repo.ex
+  s_3b24eb89295822::t_da6225b9ff024b 184-185
+test/ex_shopify_app/access_token/heartbeat_test.exs
+  s_3b24eb89295822::t_da6225b9ff024b 35,54,60,64-66,70,74,90,94-102
+lib/ex_shopify_app/access_token/heartbeat.ex
+  s_3b24eb89295822::t_da6225b9ff024b 12-17,30-35,45,53,58,67-68,82-91,93-102
+test/support/factory.ex
+  s_3b24eb89295822::t_da6225b9ff024b 58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.8",
+  "base_commit_sha": "110405d2fe4839bf2c99954332c8528293e4ae26",
+  "prompts": {},
+  "sessions": {
+    "s_3b24eb89295822": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d6986c0e-11ea-4023-931e-a9e9521e8acf",
+        "model": "unknown"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    }
+  }
+}

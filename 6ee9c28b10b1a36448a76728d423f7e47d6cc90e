@@ -1,0 +1,20 @@
+lib/ex_shopify_app/access_token/repo.ex
+  s_7bc379dfdcb0c8::t_8c01416b0088dd 308-310
+  s_7bc379dfdcb0c8::t_7eaa3223a46f0b 206-208
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "6ee9c28b10b1a36448a76728d423f7e47d6cc90e",
+  "prompts": {},
+  "sessions": {
+    "s_7bc379dfdcb0c8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f17702b5-ca55-4085-89a4-848326439797",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    }
+  }
+}
