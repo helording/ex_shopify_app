@@ -1,0 +1,26 @@
+test/ex_shopify_app/access_token/repo_test.exs
+  s_168a01fb143d9b::t_d9173470ea3771 385-399
+  s_168a01fb143d9b::t_81707af8747095 311-352
+lib/ex_shopify_app/access_token/telemetry.ex
+  s_168a01fb143d9b::t_477fe07df71ff4 38-39,43,45-46
+  s_168a01fb143d9b::t_d18637a1f9860f 93-112
+  s_168a01fb143d9b::t_056460ee9b511c 12-16
+lib/ex_shopify_app/access_token/repo.ex
+  s_168a01fb143d9b::t_d6ef93eb91082e 153
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.13",
+  "base_commit_sha": "9816baf72f750590aaed50b0fa1fbdd69bf627ca",
+  "prompts": {},
+  "sessions": {
+    "s_168a01fb143d9b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9a77f12a-f5ff-4862-8998-17021deaa24f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": null
+    }
+  }
+}
