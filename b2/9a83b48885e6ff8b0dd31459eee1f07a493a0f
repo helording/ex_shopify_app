@@ -1,0 +1,27 @@
+config/test.exs
+  s_2ded869b957d3e::t_5407624db91a6f 7
+test/support/http_mock_helpers.ex
+  s_2ded869b957d3e::t_d9234bced1e9ac 1-57
+test/support/mocks.ex
+  s_2ded869b957d3e::t_22c64046d85449 1-6
+test/test_helper.exs
+  s_2ded869b957d3e::t_17f389e265988f 3-5
+test/support/repo_case.ex
+  s_2ded869b957d3e::t_00519bd6d09c76 22-25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "b29a83b48885e6ff8b0dd31459eee1f07a493a0f",
+  "prompts": {},
+  "sessions": {
+    "s_2ded869b957d3e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "644e1d45-075a-4a64-8dc0-380645f09836",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    }
+  }
+}
