@@ -1,0 +1,25 @@
+test/support/recording_store.ex
+  s_85b103f265e582::t_ef003e1bc91aa9 1-26
+test/ex_shopify_app/access_token/heartbeat_test.exs
+  s_85b103f265e582::t_1562e4b77fd9f7 64,70-92,94-96
+  s_85b103f265e582::t_01369849013334 119-126
+  s_85b103f265e582::t_2601271a98720a 3-5,11
+  s_85b103f265e582::t_be5f68cbc7dace 93
+  s_85b103f265e582::t_43e6568c36b31c 27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "65a47c5f527c1c346e65f8f0ab9202f3b79735a6",
+  "prompts": {},
+  "sessions": {
+    "s_85b103f265e582": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "47b34f3c-9665-4962-9049-09ed68d60ccf",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    }
+  }
+}
