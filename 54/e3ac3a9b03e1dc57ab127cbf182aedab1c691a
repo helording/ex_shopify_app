@@ -1,0 +1,27 @@
+README.md
+  s_7dbecb1de6e314::t_33e6e7060a890c 3-7
+CHANGELOG.md
+  s_7dbecb1de6e314::t_f5809de8d517a8 1-32,39-45,48
+  s_7dbecb1de6e314::t_d9d3e9aa2b11a5 33-38,46-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "54e3ac3a9b03e1dc57ab127cbf182aedab1c691a",
+  "prompts": {},
+  "humans": {
+    "h_963ee31fe77864": {
+      "author": "NexPB <lorenzo@nexp.be>"
+    }
+  },
+  "sessions": {
+    "s_7dbecb1de6e314": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fdef7300-55ba-42e4-a28a-a30fc3631b15",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "NexPB <lorenzo@nexp.be>"
+    }
+  }
+}

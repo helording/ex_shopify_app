@@ -1,0 +1,61 @@
+lib/ex_shopify_app/app_events.ex
+  s_01d70b0af203dc::t_cd7cc3e89c1f99 1
+  s_01d70b0af203dc::t_3f3e764a519b9d 14-15
+  s_01d70b0af203dc::t_381263535984cf 70-71
+test/ex_shopify_app/app_events_test.exs
+  s_01d70b0af203dc::t_4ac17aed27ee5c 12-13
+  s_01d70b0af203dc::t_0043c363347bbd 1
+lib/ex_shopify_app/billing/subscription.ex
+  s_01d70b0af203dc::t_f50c903e167ec2 12
+test/ex_shopify_app/app_events/token_cache_test.exs
+  s_01d70b0af203dc::t_b043aa124a8dae 60
+  s_01d70b0af203dc::t_f1c9a4eac0554c 1
+  s_01d70b0af203dc::t_774493edb41e35 10
+  s_01d70b0af203dc::t_d4fab3852d5617 20
+README.md
+  s_01d70b0af203dc::t_3fafb3ad532501 135-137,139-140,143-146
+  h_8c8bb3a0db3180 138
+CHANGELOG.md
+  h_8c8bb3a0db3180 17
+lib/ex_shopify_app/billing.ex
+  s_01d70b0af203dc::t_b20f3a9b56a707 12-14
+  s_01d70b0af203dc::t_ef1f577c7d5c1b 15
+lib/ex_shopify_app/app_events/token_cache.ex
+  s_01d70b0af203dc::t_3c287ae1c5a6d3 1-7
+docs/APP_EVENTS.md
+  s_01d70b0af203dc::t_b0b4816ba892f1 1-71
+lib/ex_shopify_app/app_events/token_server.ex
+  s_01d70b0af203dc::t_fcf7af724dee38 20
+  s_01d70b0af203dc::t_b09ca9ba56ffa4 52
+  s_01d70b0af203dc::t_dbdc50493fe3a2 68
+  s_01d70b0af203dc::t_cd7a75e36a5442 42
+  s_01d70b0af203dc::t_558cec53f83759 14
+  s_01d70b0af203dc::t_4df276b96be65a 1-7
+lib/ex_shopify_app.ex
+  s_01d70b0af203dc::t_dc14e6c99d60e6 45
+  s_01d70b0af203dc::t_2a69ce30d4b42c 28-30
+docs/BILLING.md
+  s_01d70b0af203dc::t_abd58885ff634f 35,37-40,42-45
+  s_01d70b0af203dc::t_96853daea129ca 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "52817846eb8395732a31b26e94204f850da0155c",
+  "prompts": {},
+  "humans": {
+    "h_8c8bb3a0db3180": {
+      "author": "NexPB <1289189+NexPB@users.noreply.github.com>"
+    }
+  },
+  "sessions": {
+    "s_01d70b0af203dc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "12ba1da5-6639-4092-8717-75751be849b6",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "NexPB <1289189+NexPB@users.noreply.github.com>"
+    }
+  }
+}

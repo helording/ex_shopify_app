@@ -1,0 +1,27 @@
+test/support/http_mock_helpers.ex
+  s_c1b1e10080f13b::t_bb4199f98605b9 40-56
+  s_c1b1e10080f13b::t_c7f064d432accf 12-13
+test/ex_shopify_app/access_token_test.exs
+  s_c1b1e10080f13b::t_70f2cfb4388dcb 84-85,90-92
+  s_c1b1e10080f13b::t_40797aa4b558c7 5
+  s_c1b1e10080f13b::t_6e350b3e0b74b7 24-25,35-37
+  s_c1b1e10080f13b::t_350792c8f993f3 48-49,51-53
+  s_c1b1e10080f13b::t_f829bb741f8fbc 61-62,67-69
+  s_c1b1e10080f13b::t_b9ef7fa8293912 109-110,124-126
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.8",
+  "base_commit_sha": "fef3ff9ef94f7050bdafaee7fd13448d5208c2c4",
+  "prompts": {},
+  "sessions": {
+    "s_c1b1e10080f13b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a2290628-0e5b-48fd-9e51-cab070f3bf89",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "NexPB <1289189+NexPB@users.noreply.github.com>"
+    }
+  }
+}

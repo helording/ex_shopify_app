@@ -1,0 +1,16 @@
+lib/ex_shopify_app/billing/app_events.ex
+  h_963ee31fe77864 85
+lib/ex_shopify_app/billing/subscription.ex
+  h_963ee31fe77864 41-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.5",
+  "base_commit_sha": "00f54d88b015e9065995e6c40dd096acd9357e6f",
+  "prompts": {},
+  "humans": {
+    "h_963ee31fe77864": {
+      "author": "NexPB <lorenzo@nexp.be>"
+    }
+  }
+}

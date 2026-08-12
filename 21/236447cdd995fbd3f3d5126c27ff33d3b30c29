@@ -1,0 +1,25 @@
+README.md
+  s_42ba139b2e5160::t_02ffa68f6568d0 3,7,17-21,23-139,141-143
+  h_963ee31fe77864 1,12,140
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "21236447cdd995fbd3f3d5126c27ff33d3b30c29",
+  "prompts": {},
+  "humans": {
+    "h_963ee31fe77864": {
+      "author": "NexPB <lorenzo@nexp.be>"
+    }
+  },
+  "sessions": {
+    "s_42ba139b2e5160": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "989a977c-0303-4d51-9c6b-5bd34fc35238",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "NexPB <lorenzo@nexp.be>"
+    }
+  }
+}

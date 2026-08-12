@@ -1,0 +1,32 @@
+test/ex_shopify_app/app_events_test.exs
+  s_8de8c2b3967cd1::t_8f7559e0ac6eb0 42,45
+  s_8de8c2b3967cd1::t_eac55707a8e91b 102-113
+  s_8de8c2b3967cd1::t_eb222fd1657595 68
+  s_8de8c2b3967cd1::t_cd6108d512d792 83
+  s_8de8c2b3967cd1::t_de01c7b56c5a93 20-25
+lib/ex_shopify_app/app_events.ex
+  s_8de8c2b3967cd1::t_2e0bb1f0a11db2 75-79,86-99
+  s_8de8c2b3967cd1::t_21e9512e1bfa07 57-62
+  s_8de8c2b3967cd1::t_5c29c18d7906e4 100
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "8f7d726b3a5c22e9de47964f7c4fd287d4921329",
+  "prompts": {},
+  "humans": {
+    "h_963ee31fe77864": {
+      "author": "NexPB <lorenzo@nexp.be>"
+    }
+  },
+  "sessions": {
+    "s_8de8c2b3967cd1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "914c997f-e694-428f-b543-5571e189286c",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "NexPB <lorenzo@nexp.be>"
+    }
+  }
+}

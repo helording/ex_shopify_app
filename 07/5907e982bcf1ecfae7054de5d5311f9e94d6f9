@@ -1,0 +1,44 @@
+test/ex_shopify_app/billing/token_cache_test.exs
+  s_0163bdaa295710::t_8ba6812e5b7658 1-75
+lib/ex_shopify_app/application.ex
+  s_0163bdaa295710::t_7fad962807c4a9 8-9,12-14
+  h_963ee31fe77864 7,10-11
+docs/BILLING.md
+  s_0163bdaa295710::t_e62cecaa18b7d7 72-91
+lib/ex_shopify_app/billing/token_cache.ex
+  s_0163bdaa295710::t_413cb7cd8de945 1-2,4-18,21-29
+  h_963ee31fe77864 3,19-20
+lib/ex_shopify_app/billing/app_events.ex
+  s_0163bdaa295710::t_58d6a2f7aa0daf 14-16
+  s_0163bdaa295710::t_0374834f7bb0c9 45
+  s_0163bdaa295710::t_f23f683a0e3597 70-71
+lib/ex_shopify_app/billing/token_server.ex
+  s_0163bdaa295710::t_797a874c4ca884 14-17,21
+  s_0163bdaa295710::t_26ab3f1f360775 53
+  s_0163bdaa295710::t_eff62ee93d2023 22
+lib/ex_shopify_app.ex
+  s_0163bdaa295710::t_535531c6e48463 23,25-40,43,45-47,49
+  h_963ee31fe77864 24,41-42,44,48
+  s_0163bdaa295710::t_35fa14fb9c8eb0 50-51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.8",
+  "base_commit_sha": "075907e982bcf1ecfae7054de5d5311f9e94d6f9",
+  "prompts": {},
+  "humans": {
+    "h_963ee31fe77864": {
+      "author": "NexPB <lorenzo@nexp.be>"
+    }
+  },
+  "sessions": {
+    "s_0163bdaa295710": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "af902324-299f-484b-990a-e8e602eb68e4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "NexPB <lorenzo@nexp.be>"
+    }
+  }
+}

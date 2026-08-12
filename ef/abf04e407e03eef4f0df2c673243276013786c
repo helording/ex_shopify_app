@@ -1,0 +1,16 @@
+mix.exs
+  h_963ee31fe77864 7
+CHANGELOG.md
+  h_963ee31fe77864 10-13,50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "efabf04e407e03eef4f0df2c673243276013786c",
+  "prompts": {},
+  "humans": {
+    "h_963ee31fe77864": {
+      "author": "NexPB <lorenzo@nexp.be>"
+    }
+  }
+}

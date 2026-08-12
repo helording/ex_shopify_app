@@ -1,0 +1,55 @@
+lib/ex_shopify_app/app_events/event.ex
+  s_75d42384ef41d2::t_8bd9ede181caf3 47-64
+  s_75d42384ef41d2::t_d6a8cc74fdb7a5 10-12
+  s_75d42384ef41d2::t_c9a30f0377bc9c 1-9,13-23,65
+  s_75d42384ef41d2::t_fee5b579802c88 24-25,27,32,46
+  s_75d42384ef41d2::t_06b26c4709d81d 26,28-29,33-41
+  s_75d42384ef41d2::t_58a81ea5097057 30-31,42-45
+test/ex_shopify_app/app_events/token_cache_test.exs
+  s_75d42384ef41d2::t_2f9f524f6d13b9 40
+  s_75d42384ef41d2::t_a219c89e7d0dec 50
+  s_75d42384ef41d2::t_4be89a05107556 51-52
+docs/APP_EVENTS.md
+  s_75d42384ef41d2::t_0ecf968887ce39 34-36,39-40
+  s_75d42384ef41d2::t_ee12283d64a224 47
+  s_75d42384ef41d2::t_d97953e8cf0fe1 29
+  s_75d42384ef41d2::t_09e24fc1b8f7cb 41
+lib/ex_shopify_app/shop.ex
+  s_75d42384ef41d2::t_9bdaa03315106c 5,13-15
+  s_75d42384ef41d2::t_9a03ee8d4e5ceb 24-26
+lib/ex_shopify_app/app_events.ex
+  s_75d42384ef41d2::t_d5db1531eb55a0 29-31,33-34,40-41
+  s_75d42384ef41d2::t_e0fd68a8ca39f3 21,23,28
+  s_75d42384ef41d2::t_ebe442db52e255 43
+test/ex_shopify_app/app_events_test.exs
+  s_75d42384ef41d2::t_9de214b70f3fd1 13
+  s_75d42384ef41d2::t_eadd683a56e7a1 51-53
+  s_75d42384ef41d2::t_1796deb377d303 28
+  s_75d42384ef41d2::t_8adfead47fc5e0 50,55-56
+  s_75d42384ef41d2::t_efee8a46c45f4c 83-84
+  s_75d42384ef41d2::t_7af4451464ac84 99-100
+  s_75d42384ef41d2::t_b6c4d62d6408f1 68
+  s_75d42384ef41d2::t_8d3b778d1a4f4f 94,97-98
+  s_75d42384ef41d2::t_3e08a803f07ad6 101
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "f2c2ee114c919653c485cd9fe0f5837fbc6483fc",
+  "prompts": {},
+  "humans": {
+    "h_8c8bb3a0db3180": {
+      "author": "NexPB <1289189+NexPB@users.noreply.github.com>"
+    }
+  },
+  "sessions": {
+    "s_75d42384ef41d2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "009beb88-205e-41b7-8082-28a438a97683",
+        "model": "claude-fable-5"
+      },
+      "human_author": "NexPB <1289189+NexPB@users.noreply.github.com>"
+    }
+  }
+}

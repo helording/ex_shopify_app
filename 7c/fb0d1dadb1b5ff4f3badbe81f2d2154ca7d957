@@ -1,0 +1,16 @@
+lib/ex_shopify_app/plugs/assign_shop.ex
+  h_963ee31fe77864 1-54
+mix.exs
+  h_963ee31fe77864 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "7cfb0d1dadb1b5ff4f3badbe81f2d2154ca7d957",
+  "prompts": {},
+  "humans": {
+    "h_963ee31fe77864": {
+      "author": "NexPB <lorenzo@nexp.be>"
+    }
+  }
+}

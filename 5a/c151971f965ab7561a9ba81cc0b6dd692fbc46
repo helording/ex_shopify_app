@@ -1,0 +1,19 @@
+lib/ex_shopify_app/app_events/event.ex
+  s_75d42384ef41d2::t_e2f8638a6d23f1 42-43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "5ac151971f965ab7561a9ba81cc0b6dd692fbc46",
+  "prompts": {},
+  "sessions": {
+    "s_75d42384ef41d2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "009beb88-205e-41b7-8082-28a438a97683",
+        "model": "claude-fable-5"
+      },
+      "human_author": "NexPB <1289189+NexPB@users.noreply.github.com>"
+    }
+  }
+}

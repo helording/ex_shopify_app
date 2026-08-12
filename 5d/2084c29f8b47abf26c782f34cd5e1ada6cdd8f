@@ -1,0 +1,192 @@
+lib/ex_shopify_app/shop.ex
+  s_9c1d93e07fd0a1::t_63260d1efbe785 1-31
+mix.exs
+  s_e2d53c8eb4127a::t_a2060d14690f66 7
+  s_0f4cf7850edd0e::t_06ad39d163bf8f 23-24
+lib/ex_shopify_app/access_token/token.ex
+  s_9c1d93e07fd0a1::t_0dd01c267e3511 23-24
+  s_9c1d93e07fd0a1::t_7d799976758c42 158-159,162
+lib/ex_shopify_app/graphql.ex
+  s_9a65b74e6f6254::t_2984cb37f6bf24 12,17,25,51,53,55,63,65-82,84,94,96,126,130,138
+  s_54a0edb3a6dde7::t_e98058ffcf67b4 101-123
+  s_9c1d93e07fd0a1::t_49657bae390e8f 6-9,15
+  s_9c1d93e07fd0a1::t_dc3be5181b39e3 26
+  s_54a0edb3a6dde7::t_2de3af2df1d127 1-5
+  s_9a65b74e6f6254::t_b16fde768b2135 14
+  h_963ee31fe77864 34,87-88
+  s_9a65b74e6f6254::t_0f7b14b8e92e2d 13
+  s_9a65b74e6f6254::t_f6b6ace3b82ee5 18-20,22-24
+  s_9a65b74e6f6254::t_3ec67ec6de67bc 52
+  s_9a65b74e6f6254::t_9182319b957640 54
+  s_9a65b74e6f6254::t_012467d84b3d56 56-58,60-62
+  s_9a65b74e6f6254::t_45a31d5a1bb6a9 64
+  s_9a65b74e6f6254::t_ebb54354d6ae6e 83
+  s_9a65b74e6f6254::t_888a728d624332 95
+  s_9a65b74e6f6254::t_0195c7d35344c3 127-129
+  s_9a65b74e6f6254::t_19d43a55a348c2 131-133,135-137
+  s_9a65b74e6f6254::t_751b9b52ded7a6 139
+  s_9a65b74e6f6254::t_23e8f5d6f99ed8 10-11,16,21,27-33,35-50,59,85-86,89-93,97-100,124-125,134
+README.md
+  s_e2d53c8eb4127a::t_7cee56aad813fd 137
+  s_e2d53c8eb4127a::t_31fcfcac22074c 114
+  s_e2d53c8eb4127a::t_b8097432f9768d 109
+  s_e2d53c8eb4127a::t_efae3d9f9559be 25
+  s_e2d53c8eb4127a::t_8a6c4745e514ca 93
+  s_e2d53c8eb4127a::t_7e475bb5b46311 133
+  s_e2d53c8eb4127a::t_91c1bc66c0e706 135-136,138-140
+  s_e2d53c8eb4127a::t_ea703dafbd9f98 134
+lib/ex_shopify_app/access_token/repo.ex
+  s_9c1d93e07fd0a1::t_25ae377a7fdb72 63
+  s_9c1d93e07fd0a1::t_2d33d068221688 105,119,137,181,205
+  s_9c1d93e07fd0a1::t_fa870f2809cb69 135,179,203
+lib/ex_shopify_app/http.ex
+  s_9a65b74e6f6254::t_986334b605d8e6 1-23,25-27
+  h_963ee31fe77864 24
+lib/ex_shopify_app.ex
+  h_963ee31fe77864 20
+  s_e2d53c8eb4127a::t_c8eb6a6578433e 17,23-25,34-36,39
+  s_54a0edb3a6dde7::t_230e2cf7df8ce0 18-19,21-22
+  s_e2d53c8eb4127a::t_b12a9d3410bca0 26-33,37-38
+lib/ex_shopify_app/billing/token_server.ex
+  s_0f4cf7850edd0e::t_008eef2ac22c0a 1-91
+test/ex_shopify_app/billing/subscription_test.exs
+  s_e2d53c8eb4127a::t_26f11221a8dfba 1-11,13-31,38-39,42-43,45-51,53-54,56-57,59,69-70
+  s_e2d53c8eb4127a::t_d594c91c72baca 32-37,40-41,44,52,55,58
+  s_e2d53c8eb4127a::t_fdad0835d29846 12
+  s_9a65b74e6f6254::t_260aad313dea41 60-68
+lib/ex_shopify_app/billing.ex
+  s_e2d53c8eb4127a::t_a8237f763c914d 1-23,29-36,38-39,41,44-62,64-67,69-73
+  s_9c1d93e07fd0a1::t_b7c4ea2bcde6fc 42-43
+  s_ed14455356cd12::t_6fe04aa568aa27 24-28
+  s_9c1d93e07fd0a1::t_fab82d129b74e6 37
+  s_9c1d93e07fd0a1::t_7c9787d3a48169 63,68
+  s_e2d53c8eb4127a::t_4f9263d09a22c7 40
+docs/BILLING.md
+  s_e2d53c8eb4127a::t_c2bbb62a5bbd91 6
+  s_ed14455356cd12::t_580d60afe93fd4 14
+  s_e2d53c8eb4127a::t_9ec3f8c16482f3 1-5,7-13,15-40,45,49,52-54,59,65-67,69-77,82-90,92-94
+  s_e2d53c8eb4127a::t_07539925b51c9a 42-43,46-48,55-58,60-61
+  s_ed14455356cd12::t_6c328c0b02cbf6 50-51
+  s_e2d53c8eb4127a::t_bea984b48645b0 91
+  s_e2d53c8eb4127a::t_0a793086ca51b1 41,44
+  s_e2d53c8eb4127a::t_75bf3f33ed4fd0 62-64
+  s_e2d53c8eb4127a::t_5fda278eb6f73b 78-81
+  s_e2d53c8eb4127a::t_c20845a2d3f019 68
+lib/ex_shopify_app/access_token.ex
+  s_9a65b74e6f6254::t_cf0dda3071a1eb 17
+  s_9c1d93e07fd0a1::t_237c17cff236dd 18
+  h_963ee31fe77864 122
+  s_9a65b74e6f6254::t_6756aa8bd25113 56
+  s_9c1d93e07fd0a1::t_d6643c81b8f7ee 30,72,100,120
+  s_9a65b74e6f6254::t_319818a94192c5 115
+  s_e2d53c8eb4127a::t_afdcf5cca32a37 129
+  s_9a65b74e6f6254::t_a66776850c2afd 84
+CHANGELOG.md
+  s_e2d53c8eb4127a::t_944879b93e7939 12-16,18,20,22-24,26-27
+  s_e2d53c8eb4127a::t_5ad5ffb120b939 65-66
+  s_ed14455356cd12::t_6ab91fc2d9688e 21
+  s_e2d53c8eb4127a::t_b4200548a06bb3 17,19,25
+test/ex_shopify_app/graphql_test.exs
+  s_54a0edb3a6dde7::t_e98058ffcf67b4 1-60,85
+  s_9a65b74e6f6254::t_c2c0104704757e 61-84
+lib/ex_shopify_app/access_token/store.ex
+  s_9c1d93e07fd0a1::t_9d426822edc976 37,50,65
+  s_9c1d93e07fd0a1::t_586da1d6d51dc7 19
+lib/ex_shopify_app/billing/subscription.ex
+  s_9c1d93e07fd0a1::t_500611a138f88d 16
+  s_e2d53c8eb4127a::t_553e72afece4c5 29-38,40,44-45
+  s_9a65b74e6f6254::t_8c13113f178151 39
+  s_e2d53c8eb4127a::t_ee6c1382a070f7 1-14,17,20-23,27-28,41,46-47,58,75-76
+  s_9c1d93e07fd0a1::t_f535ed02ef0fcd 42
+  s_9a65b74e6f6254::t_dfbdeeb0076e5f 48-56,59-74
+  s_54a0edb3a6dde7::t_e98058ffcf67b4 15
+  s_e2d53c8eb4127a::t_f07c724bd0b635 18-19,24-26
+  h_963ee31fe77864 43,57
+test/ex_shopify_app/billing_test.exs
+  s_e2d53c8eb4127a::t_5568d661e30ff6 1-19
+lib/ex_shopify_app/application.ex
+  s_0f4cf7850edd0e::t_5ee7dee301df62 1-7,9-17
+  s_0f4cf7850edd0e::t_289d8d916606ab 8
+test/ex_shopify_app/http_test.exs
+  s_9a65b74e6f6254::t_d64372e123166d 1-40
+lib/ex_shopify_app/billing/app_events.ex
+  s_0f4cf7850edd0e::t_e959af592b40c6 45
+  s_54a0edb3a6dde7::t_e98058ffcf67b4 28
+  s_9a65b74e6f6254::t_909b74ae787b7b 21
+  s_e2d53c8eb4127a::t_26c072e5fd2745 1-12,16-19,23-27,29-38,41-44,46-57,61-63,96,99,102,114
+  s_ed14455356cd12::t_2cdb2a7aa82dca 58
+  h_963ee31fe77864 59,81-82,90-92,94-95,97-98,100-101,104-113
+  s_9a65b74e6f6254::t_febcfffd8e3427 39-40
+  s_9a65b74e6f6254::t_3255c8b716b981 60,68-71,83-84,87-89
+  s_0f4cf7850edd0e::t_1ff4ca5825f70e 13-15,20
+  s_0f4cf7850edd0e::t_1a7f4fa7780463 22
+  s_0f4cf7850edd0e::t_054dcdbd0aa1e0 64-67,72-80,85-86,93,103
+test/ex_shopify_app/billing/app_events_test.exs
+  s_0f4cf7850edd0e::t_d7b9829dab722a 2-4,7,18
+  s_0f4cf7850edd0e::t_554cf339a21c90 11
+  s_e2d53c8eb4127a::t_65f5ae16205c63 1,5-6,8-10,12-17,19-23,25-53,55-61,63-67,69-83,85-87,89-91
+  s_0f4cf7850edd0e::t_0f9b46d7cc0fc1 24,54,68,84
+  s_9a65b74e6f6254::t_cd5b60f434a547 62
+  s_9a65b74e6f6254::t_df63780e30f2c9 88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "5d2084c29f8b47abf26c782f34cd5e1ada6cdd8f",
+  "prompts": {},
+  "humans": {
+    "h_963ee31fe77864": {
+      "author": "NexPB <lorenzo@nexp.be>"
+    }
+  },
+  "sessions": {
+    "s_0f4cf7850edd0e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e4826e84-c410-4f50-89dd-c4fa96d244a8",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "NexPB <lorenzo@nexp.be>"
+    },
+    "s_54a0edb3a6dde7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c03a5f15-f22d-4f98-b336-30455eda45dd",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "NexPB <lorenzo@nexp.be>"
+    },
+    "s_9a65b74e6f6254": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "35f2b895-7b6f-486b-9966-e7722f4b0248",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "NexPB <lorenzo@nexp.be>"
+    },
+    "s_9c1d93e07fd0a1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f577c552-e639-4fab-b411-d178cb5bb2f8",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "NexPB <lorenzo@nexp.be>"
+    },
+    "s_e2d53c8eb4127a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "20712159-8885-4f1c-900e-223f71cd521e",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "NexPB <lorenzo@nexp.be>"
+    },
+    "s_ed14455356cd12": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "56631ed5-f98a-41c6-8273-68697f8247f5",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "NexPB <lorenzo@nexp.be>"
+    }
+  }
+}

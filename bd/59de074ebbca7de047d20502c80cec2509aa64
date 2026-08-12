@@ -1,0 +1,39 @@
+test/support/mocks.ex
+  s_a843d2cc3527dc::t_551297376d7d86 4-6
+test/support/http_mock_helpers.ex
+  s_a843d2cc3527dc::t_48d804dae29fb6 1-8,16-27,29-37,39-42
+  s_a843d2cc3527dc::t_3a2833f4a430d5 28
+  s_a843d2cc3527dc::t_53509d4a55e34a 9,11
+  s_a843d2cc3527dc::t_673bddde2ff428 10,12-15
+  s_a843d2cc3527dc::t_17fdf2fe99963c 38
+test/ex_shopify_app/access_token/repo_test.exs
+  s_a843d2cc3527dc::t_2f44b6fab35d54 80,98
+  s_a843d2cc3527dc::t_7ac71eebbeb731 9
+  s_a843d2cc3527dc::t_7fef1a4707cb40 132-133,140,143-144,152,157-158,166,170-171,178,227-228,242,247-248,255,258-259,264,282,287,298,306,309,320,324,327,334,340,343,367,374,377,388
+  s_a843d2cc3527dc::t_90e7dde7f5dd87 74-77
+  s_a843d2cc3527dc::t_26240782d61132 189,200,214,270
+  s_a843d2cc3527dc::t_adcc68e6a4fdf8 72
+test/ex_shopify_app/access_token_test.exs
+  s_a843d2cc3527dc::t_26240782d61132 7,81,106,142
+  s_a843d2cc3527dc::t_32bc8405f083c2 54-56
+test/support/test_helpers.ex
+  s_a843d2cc3527dc::t_b0aabe1b433e3b 1-23
+config/test.exs
+  s_a843d2cc3527dc::t_9402a4df94994e 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.8",
+  "base_commit_sha": "bd59de074ebbca7de047d20502c80cec2509aa64",
+  "prompts": {},
+  "sessions": {
+    "s_a843d2cc3527dc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c04f8d3d-86dd-467c-a450-290fbac593fd",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "NexPB <1289189+NexPB@users.noreply.github.com>"
+    }
+  }
+}
