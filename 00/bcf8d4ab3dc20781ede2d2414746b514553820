@@ -1,0 +1,30 @@
+CHANGELOG.md
+  s_2fd41e3e40340f::t_c93832a72a7925 12,17-21
+test/ex_shopify_app/access_token/caller_transaction_test.exs
+  s_2fd41e3e40340f::t_63fc6e3a401f73 3-4,6-10
+lib/ex_shopify_app/access_token/refresher.ex
+  s_2fd41e3e40340f::t_0d35c70de82fae 3-14
+  s_2fd41e3e40340f::t_37653643726d2b 25-26
+README.md
+  s_2fd41e3e40340f::t_9ed3cbb2a6ab45 145
+  s_2fd41e3e40340f::t_d9fa4b0e1a0361 123-126
+lib/ex_shopify_app/access_token/repo.ex
+  s_2fd41e3e40340f::t_60c354d8919f05 231-232
+  s_2fd41e3e40340f::t_dde31b9c22c622 202-204
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "00bcf8d4ab3dc20781ede2d2414746b514553820",
+  "prompts": {},
+  "sessions": {
+    "s_2fd41e3e40340f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "39f49150-b8a7-4068-a58c-7ea7ae842d5d",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Harry Lording <helording@gmail.com>"
+    }
+  }
+}
