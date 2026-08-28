@@ -263,8 +263,15 @@ defmodule ExShopifyApp.AccessToken.Repo do
     |> Task.Supervisor.async_nolink(fun)
     |> Task.yield(:infinity)
     |> case do
-      {:ok, result} -> result
-      {:exit, reason} -> {:error, {:refresh_unavailable, reason}}
+      {:ok, result} ->
+        result
+
+      # NOTE: The task can exit before `with_refresh_telemetry/2` closes its span, so a refresh
+      # that dies this way emits no `:stop` or `:exception` event. Running the refresh
+      # undetached would not avoid that: the caller's own process could equally die
+      # mid-refresh and leave the span unclosed.
+      {:exit, reason} ->
+        {:error, {:refresh_unavailable, reason}}
     end
   end
 

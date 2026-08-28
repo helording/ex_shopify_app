@@ -138,7 +138,7 @@ exchange would fail because Shopify has already invalidated the prior token.
 
 - `{:error, :no_token}`
 - `{:error, :reauthorization_required}`
-- `{:error, {:refresh_failed, reason}}` (retryable)
+- `{:error, {:refresh_failed, reason}}` (retryable; `reason` is `:timeout` when the Shopify request exceeds the 15s request timeout)
 - `{:error, {:token_persistence_failed_after_refresh, %PersistenceFailure{reason: reason, token: token}}}` (critical; retry persisting `token`)
 - `{:error, {:lock_timeout, reason}}`
 - `{:error, {:refresh_crashed, reason}}`

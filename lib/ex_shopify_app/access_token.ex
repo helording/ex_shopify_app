@@ -6,6 +6,9 @@ defmodule ExShopifyApp.AccessToken do
   offline access tokens. Returns `ExShopifyApp.AccessToken.Token` structs carrying the
   full expiry metadata.
 
+  Every request to Shopify is bounded at 15 seconds; a request that exceeds it returns
+  `{:error, :timeout}`.
+
   Docs:
   - <https://shopify.dev/docs/apps/build/authentication-authorization/access-tokens/token-exchange#example>
   - <https://shopify.dev/docs/apps/build/authentication-authorization/access-tokens/offline-access-tokens>
@@ -16,6 +19,8 @@ defmodule ExShopifyApp.AccessToken do
   alias ExShopifyApp.AccessToken.Token
   alias ExShopifyApp.HTTP
   alias ExShopifyApp.Shop
+
+  @request_timeout :timer.seconds(15)
 
   @doc """
   Exchange a session token for an access token.
@@ -123,6 +128,7 @@ defmodule ExShopifyApp.AccessToken do
 
     Tesla.client(
       [
+        {Tesla.Middleware.Timeout, timeout: @request_timeout},
         {Tesla.Middleware.BaseUrl, "https://#{host}/admin"},
         {Tesla.Middleware.JSON, engine: JSON}
       ],
